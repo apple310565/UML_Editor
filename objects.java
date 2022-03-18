@@ -1,4 +1,5 @@
 import java.awt.Canvas;
+import java.awt.FontMetrics;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
@@ -88,7 +89,8 @@ class use_case extends objects {
 	protected int width=100,high=60,size=10;
 	protected void pp(Graphics g) {
 		//畫use case
-		g.drawString(name,x+20,y+25);
+        FontMetrics metrics = g.getFontMetrics();
+		g.drawString(name,x+(int)(width/2)-(int)(metrics.stringWidth(name)/2),y-2+(int)(high/2));//讓文字置中
         g.setColor(Color.GRAY);
     	//g.fillOval(x,y,width,high);
     	g.setColor(Color.BLACK);
@@ -113,7 +115,8 @@ class Class extends objects {
 	protected int width=100,high=110,size=10;
 	protected void pp(Graphics g) {
 		//畫class
-        g.drawString(name,x+15,y+15);
+		FontMetrics metrics = g.getFontMetrics();
+		g.drawString(name,x+(int)(width/2)-(int)(metrics.stringWidth(name)/2),y+27);//讓文字置中
         g.drawRect(x, y, 100, 50);
         g.drawRect(x, y+50, 100, 30);
         g.drawRect(x, y+80 ,100, 30);
